@@ -1,0 +1,78 @@
+<template>
+    <div >
+        <div style="width:1250px;margin:0 auto">
+            <el-table :data="list" header-cell-style="background-color:lightgrey">
+                <el-table-column label="ID" prop="id" width=100px></el-table-column>
+                <el-table-column label="微信用户名称" prop="name" width=200px></el-table-column>
+                
+                <el-table-column label="客服头像" prop="touxiang" width=200px>
+                    <template slot-scope="scope">
+                        <img :src="scope.row.touxiang" style="width:60px;height:60px;border-radius:100%"/>
+                    </template>
+                </el-table-column>
+
+                <el-table-column label="客服名称" prop="kfname" width=200px></el-table-column>
+
+                <el-table-column label="客服状态" width=200px>
+                    <template slot-scope="scope">
+                        <el-switch
+                            class="switch"
+                            width='60'
+                            v-model="scope.row.switch"
+                            :active-value="1" 
+                            :inactive-value="0" 
+                            inactive-color="red"
+                            active-text="开启"
+                            inactive-text="关闭">
+                        </el-switch>
+                    </template>
+                </el-table-column>
+                <el-table-column label="添加时间" prop="tjtiem" width=200px></el-table-column>
+                <el-table-column label="操作" width="200px" fixed="right" >
+                    <!-- 插槽 (按钮)-->
+                    <template slot-scope="scope">
+                        <span style="color:blue">编辑</span>
+                        <span> | </span>
+                        <span style="color:blue">删除</span>
+                        <span> | </span>
+                        <span style="color:blue;width:60px;height:30px">进入工作台</span>
+                    </template>
+                </el-table-column>
+            </el-table>
+        </div>
+        
+    </div>
+</template>
+
+<script>
+export default {
+    data(){
+        return{
+            list:[
+                {switch:1,id:1,name:"张三",touxiang:"https://tse1-mm.cn.bing.net/th/id/OIP-C.owpbNjuu23xkyc4yrX9BDQHaEo?pid=ImgDet&rs=1",kfname:"lay",tjtiem:"2002-02-02"},
+                {switch:1,id:2,name:"李四",touxiang:"https://scpic.chinaz.net/files/pic/pic9/202009/apic27858.jpg",kfname:"tt",tjtiem:"2002-02-02"},
+                {switch:1,id:3,name:"王五",touxiang:"https://tse1-mm.cn.bing.net/th/id/OIP-C.owpbNjuu23xkyc4yrX9BDQHaEo?pid=ImgDet&rs=1",kfname:"hdf",tjtiem:"2002-02-02"},
+                {switch:1,id:4,name:"赵六",touxiang:"https://tse1-mm.cn.bing.net/th/id/OIP-C.owpbNjuu23xkyc4yrX9BDQHaEo?pid=ImgDet&rs=1",kfname:"sdg",tjtiem:"2002-02-02"},
+                {switch:1,id:5,name:"煦炎",touxiang:"https://tse1-mm.cn.bing.net/th/id/OIP-C.owpbNjuu23xkyc4yrX9BDQHaEo?pid=ImgDet&rs=1",kfname:"dfg",tjtiem:"2002-02-02"},
+                {switch:1,id:6,name:"晓燕",touxiang:"https://tse1-mm.cn.bing.net/th/id/OIP-C.owpbNjuu23xkyc4yrX9BDQHaEo?pid=ImgDet&rs=1",kfname:"dhg",tjtiem:"2002-02-02"},
+                {switch:1,id:7,name:"小明",touxiang:"https://tse1-mm.cn.bing.net/th/id/OIP-C.owpbNjuu23xkyc4yrX9BDQHaEo?pid=ImgDet&rs=1",kfname:"er",tjtiem:"2002-02-02"},
+            ],
+        }
+    },
+}
+</script>
+
+<style scoped>
+    .switch /deep/ .el-switch__label {
+        position: absolute;
+        color: #fff !important;
+        z-index: 1;
+        display: none;
+    }
+    .switch /deep/ .is-active{
+        display: block;
+    }
+    .switch /deep/ .el-switch__label--left span{
+        margin-left: 20px;
+    }
+</style>

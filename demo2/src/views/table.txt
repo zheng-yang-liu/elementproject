@@ -1,0 +1,63 @@
+<template>
+    <div style="margin:0 auto;width:600px">
+        <el-table :data="list" :row-class-name="setbg">
+            <el-table-column label="编号" prop="id"></el-table-column>
+            <el-table-column label="姓名" prop="name"></el-table-column>
+            <el-table-column label="性别" prop="sex"></el-table-column>
+            <el-table-column label="年龄" prop="age"></el-table-column>
+        </el-table>
+    </div>
+</template>
+
+<script>
+export default {
+    data(){
+        return{
+            list:[
+                {id:1,name:"张三",sex:"男",age:12},
+                {id:2,name:"李四",sex:"男",age:11},
+                {id:3,name:"王五",sex:"男",age:16},
+                {id:4,name:"赵六",sex:"女",age:13},
+                
+            ]
+        }
+        
+    },
+    methods:{
+        setbg({row,rowIndex}){
+            if(rowIndex ==0){
+                return "yellow";
+            }
+            if(row.name =="李四"){
+                return "blue";
+            }
+            if(row.age ==16){
+                return "red";
+            }
+            if(row.sex =="女"){
+                return "green";
+            }
+        }
+    }
+}
+</script>
+
+<style>
+    .yellow{
+        background-color: yellow !important;
+        color: rgb(0, 0, 0);
+    }
+    .blue{
+        background-color: blue !important;
+        color: rgb(255, 255, 255);
+    }
+    .red{
+        background-color: red !important;
+        color: rgb(255, 255, 255);
+    }
+    .green{
+        background-color: green !important;
+        color: rgb(255, 255, 255);
+    }
+
+</style>
